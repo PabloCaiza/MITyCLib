@@ -17,7 +17,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.8</java.version>
+		<java.version>21</java.version>
 		<log4j.version>1.2.14</log4j.version>
 		<junit.version>4.3.1</junit.version>
 		<commons-loggin.version>1.1.1</commons-loggin.version>
@@ -85,6 +85,14 @@
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.17.1</version>
+		</dependency>
+
+
+
 
 		<dependency>
 			<groupId>commons-logging</groupId>
@@ -115,6 +123,11 @@
 				<configuration>
 					<source>${java.version}</source>
 					<target>${java.version}</target>
+					<compilerArgs>
+						<arg>--add-exports</arg>
+						<arg>java.base/sun.security.action=ALL-UNNAMED</arg>
+					</compilerArgs>
+
 				</configuration>
 				<version>${maven-compiler-plugin-version}</version>
 			</plugin>

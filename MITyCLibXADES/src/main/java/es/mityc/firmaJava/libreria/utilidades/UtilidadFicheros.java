@@ -30,6 +30,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.apache.xerces.dom.DOMOutputImpl;
 import org.w3c.dom.Document;
 
 /**
@@ -93,8 +94,7 @@ public class UtilidadFicheros {
 	 */
 	public static void writeXML(Document doc, OutputStream out) {
 		OutputStreamWriter osw = new OutputStreamWriter(out);
-		
-		com.sun.org.apache.xerces.internal.dom.DOMOutputImpl domoutputimpl = new com.sun.org.apache.xerces.internal.dom.DOMOutputImpl();
+		DOMOutputImpl domoutputimpl = new DOMOutputImpl();
 		domoutputimpl.setEncoding(doc.getXmlEncoding());
 		domoutputimpl.setCharacterStream(osw);
 		

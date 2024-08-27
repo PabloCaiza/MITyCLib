@@ -26,10 +26,12 @@
 package es.mityc.javasign.pkstore.mscapi.mityc;
 
 import java.math.BigInteger;
-import java.security.InvalidKeyException;
-import java.security.KeyRep;
+import java.security.*;
 
-import sun.security.rsa.RSAPublicKeyImpl;
+//import sun.security.rsa.RSAPublicKeyImpl;
+
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.RSAPublicKeySpec;
 
 /**
  * The handle for an RSA public key using the Microsoft Crypto API.
@@ -147,10 +149,14 @@ class RSAPublicKey extends Key implements java.security.interfaces.RSAPublicKey
         if (encoding == null) {
 
             try {
-                encoding = new RSAPublicKeyImpl(getModulus(),
-                    getPublicExponent()).getEncoded();
+                RSAPublicKeySpec keySpec = new RSAPublicKeySpec(getModulus(),getPublicExponent());
+                KeyFactory keyFactory  = KeyFactory.getInstance("RSA");
+                PublicKey rsaPublicKey = keyFactory.generatePublic(keySpec);
+                encoding = rsaPublicKey.getEncoded();
+//                encoding = new RSAPublicKeyImpl(getModulus(),
+//                    getPublicExponent()).getEncoded();
 
-            } catch (InvalidKeyException e) {
+            } catch (InvalidKeySpecException | NoSuchAlgorithmException e) {
                 // ignore
             }
         }

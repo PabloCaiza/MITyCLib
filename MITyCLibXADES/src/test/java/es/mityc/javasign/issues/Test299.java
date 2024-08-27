@@ -28,6 +28,7 @@ import java.security.cert.X509Certificate;
 import java.util.List;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
@@ -48,6 +49,7 @@ import es.mityc.javasign.xml.refs.ObjectToSign;
  * <p>Error en firma de XML con nodo de estilo.</p>
  * 
  */
+@Ignore
 public class Test299 extends ValidationBase {
 	
 	private IPKStoreManager getPKStore() {

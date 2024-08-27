@@ -37,11 +37,11 @@ import java.util.Map;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import sun.security.action.PutAllAction;
 import es.mityc.javasign.ConstantsAPI;
 import es.mityc.javasign.pkstore.ConstantsCert;
 import es.mityc.javasign.utils.CopyFilesTool;
 import es.mityc.javasign.utils.OSTool;
+import sun.security.action.PutAllAction;
 
 
 /**
@@ -193,7 +193,7 @@ public final class SunMSCAPI_MITyC extends Provider {
         map.put("Alg.Alias.Signature.SHA-512/RSA", "SHA512withRSA");
         map.put("Alg.Alias.Signature.SHA512RSA", "SHA512withRSA");
         map.put("Alg.Alias.Signature.SHA512WITHRSAENCRYPTION", "SHA512withRSA");
-        
+
         // supported key classes
         map.put("Signature.SHA1withRSA SupportedKeyClasses",
             "es.mityc.javasign.pkstore.mscapi.mityc.Key");

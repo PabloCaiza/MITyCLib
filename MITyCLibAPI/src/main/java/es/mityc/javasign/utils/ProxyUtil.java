@@ -24,12 +24,13 @@ import java.net.InetSocketAddress;
 import java.net.MalformedURLException;
 import java.net.Proxy;
 import java.net.URL;
+import java.util.Base64;
 import java.util.StringTokenizer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+//import org.bouncycastle.util.encoders.Base64;
 
-import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
 
 /**
  * <p>Permite manejar datos para acceso a internet vía Proxy.</p>
@@ -48,6 +49,7 @@ public class ProxyUtil {
 	 */
 	public static HttpURLConnection getConnection(String URL) throws MalformedURLException, IOException {
 		HttpURLConnection conn = null;
+
 		if (System.getProperty("http.proxySet") != null 
 				&& Boolean.parseBoolean(System.getProperty("http.proxySet"))
 				&& !isInNonHosts(URL)) {
@@ -62,10 +64,10 @@ public class ProxyUtil {
 					log.debug("Proxy - Autenticando con " + System.getProperty("http.proxyUser"));
 				}
 				Authenticator.setDefault(new SimpleAuthenticator(System.getProperty("http.proxyUser"), System.getProperty("http.proxyPassword")));
-				String encoded = new String(Base64.encode(new String(System.getProperty("http.proxyUser") + 
-						":" + System.getProperty("http.proxyPassword")).getBytes()));
+				String encoded = Base64.getEncoder().encodeToString("%s:%s".formatted(System.getProperty("http.proxyUser"),
+						System.getProperty("http.proxyPassword")).getBytes());
 				conn.setRequestProperty("Proxy-Authorization", "NTLM " + encoded);
-			}			
+			}
 		} else {
 			if (log.isDebugEnabled()) {
 				log.debug("Conexión directa a " + URL);

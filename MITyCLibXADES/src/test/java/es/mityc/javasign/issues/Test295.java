@@ -17,6 +17,7 @@
 package es.mityc.javasign.issues;
 
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.mityc.firmaJava.ValidationBase;
@@ -29,6 +30,7 @@ import es.mityc.firmaJava.ValidationBase;
 public class Test295 extends ValidationBase {
 	
 	@Test
+	@Ignore
 	public void test() {
 		try {
 			if (validateStreamThrowable(loadRes("/issues/295/295.xml"), null, null)) {

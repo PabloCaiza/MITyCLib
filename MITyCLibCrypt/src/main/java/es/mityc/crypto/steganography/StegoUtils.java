@@ -67,7 +67,6 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import sun.awt.image.ImageFormatException;
 
 import es.mityc.crypto.ConstantsCrypto;
 import es.mityc.crypto.Utils;
@@ -628,7 +627,7 @@ public class StegoUtils {
 			}
 			
 			if (image == null) {
-				throw new ImageFormatException("Imagen no compatible");
+				throw new RuntimeException("Imagen no compatible");
 			}
 			
 			if (image.getType() != BufferedImage.TYPE_INT_RGB) {

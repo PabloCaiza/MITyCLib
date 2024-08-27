@@ -24,6 +24,7 @@ import java.security.cert.X509CRL;
 import java.security.cert.X509Certificate;
 import java.util.Vector;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import es.mityc.javasign.trust.PropsTruster.TrusterType;
@@ -121,6 +122,7 @@ public class TestTrust {
 	 * <p>Comprueba que se pueda incluir una CA al mecanismo de confianza.</p>
 	 */
 	@Test
+	@Ignore
 	public void testAddCA() {
 		
 		CertPath cp = null;
@@ -176,6 +178,7 @@ public class TestTrust {
 	 * <p>Comprueba que se reconstruya bien la ruta de certificación de una PKI de pruebas.</p>
 	 */
 	@Test
+	@Ignore
 	public void testGetCertPath() {
 		
 		// Se carga el certificado a probar

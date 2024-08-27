@@ -60,6 +60,7 @@ import javax.xml.parsers.ParserConfigurationException;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.xerces.impl.io.MalformedByteSequenceException;
 import org.bouncycastle.asn1.ASN1InputStream;
 import org.bouncycastle.asn1.DERInteger;
 import org.bouncycastle.asn1.DEROctetString;
@@ -428,7 +429,7 @@ public class ValidarFirmaXML { // implements ConstantesXADES
 					try {baosLeido.close();} catch (IOException e) {}
 				}
 			}
-		} catch (@SuppressWarnings("restriction") com.sun.org.apache.xerces.internal.impl.io.MalformedByteSequenceException me) {
+		} catch (@SuppressWarnings("restriction") MalformedByteSequenceException me) {
 		    LOGGER.debug(I18n.getResource(ConstantesXADES.LIBRERIAXADES_VALIDARFIRMA_ERROR28) + " - " + me.getMessage());
 		} catch (IOException e1) {
 			mostrarErrorValidacion(e1);

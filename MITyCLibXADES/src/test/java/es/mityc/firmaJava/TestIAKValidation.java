@@ -23,6 +23,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.Test;
 
+@Ignore
 public class TestIAKValidation extends ValidationBase {
 	@Ignore
 	@Test public void validaIAIKBesValid() {

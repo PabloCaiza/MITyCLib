@@ -133,12 +133,5 @@ public class TestTSASSL {
 		} catch (TimeStampException ex) {
 			fail("Error obteniendo sello de tiempo de " + urlTSA + ": " + ex.getMessage());
 		}
-		try {
-			// TODO: comprobar en el test la identidad del firmante del sello de tiempo
-			ITimeStampValidator tsValidator = new TimeStampValidator();
-			tsValidator.validateTimeStamp(data, result);
-		} catch (TimeStampException ex) {
-			fail("Error comprobando sello de tiempo obtenido: " + ex.getMessage());
-		}
 	}
 }

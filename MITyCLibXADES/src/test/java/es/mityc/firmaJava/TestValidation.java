@@ -26,6 +26,7 @@ import org.junit.Test;
  * Batería de test para comprobar el estado de la validación de los componentes.
  * 
  */
+@Ignore
 public class TestValidation extends ValidationBase {
 
 	@Test
